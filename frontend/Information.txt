@@ -1,0 +1,11 @@
+what we're doing here is in index.js we've created routes and <App/> is included inside route and
+outlet in App.js is choosing one of the children according to path of children in Home screen component as soon as page loaded
+we have sent get request to API for all products showing then on screen and we have make images and name of 
+product as clickable and as sson as we are clicking on image or name of product that are bringing us to a 
+perticular kind of url which contains is init.
+
+Which pattern is matching with url of productscreen present in route of index.js second child.
+Now in productscreen we are getting id of product from url and sending get request to backend for that perticular 
+product details and we're showing everything related to that product on screen.
+
+On 07-01-2024-------------------------------------------------------------------------------------------------------------
