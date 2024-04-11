@@ -7,8 +7,11 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import CartScreen from "./screens/CartScreen";
 import { Provider } from "react-redux";
 import store from "./store";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 // this is first way we have created routes in tutorials
 // const router = createBrowserRouter(
@@ -40,6 +43,21 @@ const router = createBrowserRouter([
         id: 2,
         path: "/product/:id",
         element: <ProductScreen />,
+      },
+      {
+        id: 3,
+        path: "/cart",
+        element: <CartScreen />,
+      },
+      {
+        id: 4,
+        path: "/login",
+        element: <LoginScreen />,
+      },
+      {
+        id: 5,
+        path: "/register",
+        element: <RegisterScreen />,
       },
     ],
   },
