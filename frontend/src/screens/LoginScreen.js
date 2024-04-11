@@ -21,11 +21,13 @@ const LoginScreen = () => {
 
   const { userInfo } = useSelector((state) => state.auth);
 
-  const { search } = useLocation(); //search part beasically contains content of ? in current url like in http://localhost:3000/login?redirect=/shipping   "redirect=/shipping" part will be there.
+  const { search } = useLocation(); //search part beasically contains content of ? in current url
+  //  like in http://localhost:3000/login?redirect=/shipping   "redirect=/shipping" part will be there.
   // console.log(useLocation());
   const sp = new URLSearchParams(search);
   // console.log(sp);
-  const redirect = sp.get("redirect") || "/";
+  const redirect = sp.get("redirect") || "/"; //if we're on login screen with redirect parameter
+  // then we'll be redirected to redirect screen after login screen
   // console.log(redirect);
 
   const submitHandler = async (e) => {
