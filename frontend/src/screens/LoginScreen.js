@@ -21,9 +21,12 @@ const LoginScreen = () => {
 
   const { userInfo } = useSelector((state) => state.auth);
 
-  const { search } = useLocation();
+  const { search } = useLocation(); //search part beasically contains content of ? in current url like in http://localhost:3000/login?redirect=/shipping   "redirect=/shipping" part will be there.
+  // console.log(useLocation());
   const sp = new URLSearchParams(search);
+  // console.log(sp);
   const redirect = sp.get("redirect") || "/";
+  // console.log(redirect);
 
   const submitHandler = async (e) => {
     e.preventDefault();
