@@ -11,6 +11,7 @@ import CartScreen from "./screens/CartScreen";
 import { Provider } from "react-redux";
 import store from "./store";
 import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 // this is first way we have created routes in tutorials
 // const router = createBrowserRouter(
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
         id: 4,
         path: "/login",
         element: <LoginScreen />,
+      },
+      {
+        id: 5,
+        path: "/register",
+        element: <RegisterScreen />,
       },
     ],
   },
