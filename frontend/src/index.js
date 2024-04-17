@@ -19,6 +19,7 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import ShippingScreen from "./screens/ShippingScreen";
+import PaymentScreen from "./screens/PaymentScreen";
 
 // this is first way we have created routes in tutorials
 // const router = createBrowserRouter(
@@ -82,8 +83,13 @@ const router = createBrowserRouter([
             id: 61,
             path: "/shipping",
             element: <ShippingScreen />,
-          }
-         ] 
+          },
+          {
+            id: 62,
+            path: "/payment",
+            element: <PaymentScreen />,
+          },
+        ],
       },
     ],
   },
