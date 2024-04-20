@@ -4,7 +4,12 @@ import "./assets/styles/index.css";
 import App from "./App";
 import "./assets/styles/bootstrap.custom.css";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
@@ -12,6 +17,9 @@ import { Provider } from "react-redux";
 import store from "./store";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import PrivateRoute from "./components/PrivateRoute";
+import ShippingScreen from "./screens/ShippingScreen";
+import PaymentScreen from "./screens/PaymentScreen";
 
 // this is first way we have created routes in tutorials
 // const router = createBrowserRouter(
@@ -19,6 +27,13 @@ import RegisterScreen from "./screens/RegisterScreen";
 //     <Route path="/" element={<App />}>
 //       <Route index={true} path="/" element={<HomeScreen />} />
 //       <Route path="/product/:id" element={<ProductScreen />} />
+//       <Route path="/cart" element={<CartScreen />} />
+//       <Route path="/login" element={<LoginScreen />} />
+//       <Route path="/register" element={<RegisterScreen />} />
+//       <Route path="" element={<PrivateRoute />}>
+//         {" "}
+//         <Route path="/shipping" element={<ShippingScreen />} />
+//       </Route>
 //     </Route>
 //   )
 // );
@@ -58,6 +73,23 @@ const router = createBrowserRouter([
         id: 5,
         path: "/register",
         element: <RegisterScreen />,
+      },
+      {
+        id: 6,
+        path: "",
+        element: <PrivateRoute />,
+        children: [
+          {
+            id: 61,
+            path: "/shipping",
+            element: <ShippingScreen />,
+          },
+          {
+            id: 62,
+            path: "/payment",
+            element: <PaymentScreen />,
+          },
+        ],
       },
     ],
   },

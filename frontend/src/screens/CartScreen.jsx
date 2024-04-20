@@ -33,7 +33,8 @@ const CartScreen = () => {
   };
 
   const checkoutHandler = () => {
-    navigate("/login?redirect=/shipping");
+    navigate("/login?redirect=/shipping"); //means we'll go to login screen with "redirect=/shipping" parameter and after login screen
+    //  we'll go to another screen on basis of redirect value
   };
 
   return (
