@@ -40,6 +40,7 @@ const RegisterScreen = () => {
         dispatch(setCredentials({ ...res }));
         navigate(redirect);
       } catch (err) {
+        console.log("register Screen Error", err);
         toast.error(err?.data?.message || err.error);
       }
     }

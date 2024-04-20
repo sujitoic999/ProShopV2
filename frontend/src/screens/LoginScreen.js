@@ -23,18 +23,18 @@ const LoginScreen = () => {
 
   const { search } = useLocation(); //search part beasically contains content of ? in current url
   //  like in http://localhost:3000/login?redirect=/shipping   "redirect=/shipping" part will be there.
-  // console.log(useLocation());
+  console.log("useLocation Address-----", useLocation());
   const sp = new URLSearchParams(search);
-  // console.log(sp);
+  console.log("URL search Params----", sp);
   const redirect = sp.get("redirect") || "/"; //if we're on login screen with redirect parameter
   // then we'll be redirected to redirect screen after login screen
-  // console.log(redirect);
+  console.log("new created redirect---", redirect);
 
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
       const res = await login({ email, password }).unwrap();
-      console.log(res);
+      // console.log(res);
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (err) {
