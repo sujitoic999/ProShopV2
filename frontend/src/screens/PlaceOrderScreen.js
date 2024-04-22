@@ -14,6 +14,8 @@ import { clearCartItems } from "../slices/cartSlice";
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const [createOrder, { isLoading, error }] = useCreateOrderMutation();
 
   useEffect(() => {
     if (!cart.shippingAddress.address) {
@@ -24,7 +26,21 @@ const PlaceOrderScreen = () => {
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
   const placeOrderHandler = async () => {
-    console.log("Inside Place Order handler");
+    try {
+      const res = await createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      }).unwrap();
+      dispatch(clearCartItems());
+      navigate(`/order/${res._id}`);
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
   return (
@@ -112,6 +128,9 @@ const PlaceOrderScreen = () => {
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
+                {error && <Message variant="danger">{error}</Message>}
+              </ListGroup.Item>
+              <ListGroup.Item>
                 <Button
                   type="button"
                   className="btn-block"
@@ -120,6 +139,7 @@ const PlaceOrderScreen = () => {
                 >
                   Place Order
                 </Button>
+                {isLoading && <Loader />}
               </ListGroup.Item>
             </ListGroup>
           </Card>
