@@ -1,0 +1,18 @@
+ReactJS useParams Hook
+Last Updated : 24 Nov, 2023
+React JS useParams Hook helps to access the parameters of the current route to manage the dynamic routes in the URL. The react-router-dom package has useParams hooks that let you access and use the parameters of the current route as required.
+
+Prerequisites:
+NPM & Node.js
+React JS
+react-router-dom
+Approach:
+Define the dynamic routes for the specific components in which we want to access parameters.
+Using the useParams hook access the URL and hence the params from the URL.
+Use the Params inside the component and display it on the UI.
+
+Like in below route we'll get id from URL with help of useParams() hook.
+
+<Route path="/page/:id">
+                    <BlogPost />
+</Route>

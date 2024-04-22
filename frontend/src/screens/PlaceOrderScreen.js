@@ -36,6 +36,8 @@ const PlaceOrderScreen = () => {
         taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
       }).unwrap();
+
+      // console.log(res);
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
     } catch (error) {
@@ -73,7 +75,6 @@ const PlaceOrderScreen = () => {
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={3}>
-                          {console.log("---------", item)}
                           <Image
                             src={item.image}
                             alt={item.name}
