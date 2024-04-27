@@ -10,11 +10,10 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { Provider } from "react-redux";
 import store from "./store";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
@@ -23,6 +22,7 @@ import ShippingScreen from "./screens/ShippingScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
+import { Provider } from "react-redux";
 // this is first way we have created routes in tutorials
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
