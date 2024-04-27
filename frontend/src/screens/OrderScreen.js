@@ -10,7 +10,11 @@ import {
 } from "react-bootstrap";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { useGetOrderDetailsQuery } from "../slices/orderApiSlice";
+import {
+  useGetOrderDetailsQuery,
+  usePayOrderMutation,
+  useGetPayPalClientIdQuery,
+} from "../slices/orderApiSlice";
 import FormContainer from "../components/FormContainer";
 
 const OrderScreen = () => {
@@ -22,6 +26,7 @@ const OrderScreen = () => {
     isLoading,
     error,
   } = useGetOrderDetailsQuery(orderId);
+  
 
   console.log(order);
 
