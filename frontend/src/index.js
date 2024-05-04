@@ -26,6 +26,7 @@ import OrderScreen from "./screens/OrderScreen";
 import { Provider } from "react-redux";
 import ProfileScreen from "./screens/ProfileScreen";
 import OrderListScreen from "./screens/admin/OrderListScreen";
+import ProductListScreen from "./screens/admin/ProductListScreen";
 // this is first way we have created routes in tutorials
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -120,6 +121,11 @@ const router = createBrowserRouter([
             id: 71,
             path: "/admin/orderlist",
             element: <OrderListScreen />,
+          },
+          {
+            id: 72,
+            path: "/admin/productlist",
+            element: <ProductListScreen />,
           },
         ],
       },
