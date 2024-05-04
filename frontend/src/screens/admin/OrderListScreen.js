@@ -8,7 +8,6 @@ import Loader from "../../components/Loader";
 
 const OrderListScreen = () => {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
-  console.log(orders);
   return (
     <div className="container">
       <h1>Orders</h1>
