@@ -15,6 +15,10 @@ const UserListScreen = () => {
   const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
 
   const deleteHandler = async (id) => {
+    if (id === "65e88caa700868b45e444b3e") {
+      toast.warning("Admin user can not be deleted !");
+      return;
+    }
     if (window.confirm("Are you sure?")) {
       try {
         await deleteUser(id);
@@ -62,7 +66,7 @@ const UserListScreen = () => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer to={`admin/user/${user._id}/edit`}>
+                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
                     <Button variant="light" className="btn-sm">
                       <FaEdit />
                     </Button>
