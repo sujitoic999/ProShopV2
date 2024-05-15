@@ -29,6 +29,7 @@ import OrderListScreen from "./screens/admin/OrderListScreen";
 import ProductListScreen from "./screens/admin/ProductListScreen";
 import ProductEditScreen from "./screens/admin/ProductEditScreen";
 import UserListScreen from "./screens/admin/UserListScreen";
+import UserEditSceen from "./screens/admin/UserEditSceen";
 // this is first way we have created routes in tutorials
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -138,6 +139,11 @@ const router = createBrowserRouter([
             id: 74,
             path: "/admin/userlist",
             element: <UserListScreen />,
+          },
+          {
+            id: 75,
+            path: "/admin/user/:id/edit",
+            element: <UserEditSceen />,
           },
         ],
       },
