@@ -12,14 +12,15 @@ import {
 
 const UserListScreen = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
+
   const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
 
   const deleteHandler = async (id) => {
-    if (id === "65e88caa700868b45e444b3e") {
-      toast.warning("Admin user can not be deleted !");
+    const clickedUser = users.filter((user) => user._id === id);
+    if (clickedUser[0]?.isAdmin === true) {
+      toast.warning("Admin user can't be deleted !");
       return;
-    }
-    if (window.confirm("Are you sure?")) {
+    } else if (window.confirm("Are you sure?")) {
       try {
         await deleteUser(id);
         toast.success("User deleted");
