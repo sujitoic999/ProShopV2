@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import {
   useUpdateProductMutation,
   useGetProductDetailsQuery,
-  useUplaodProductImageMutation,
+  useUploadProductImageMutation,
 } from "../../slices/productsApiSlice";
 
 const ProductEditScreen = () => {
@@ -34,7 +34,7 @@ const ProductEditScreen = () => {
     useUpdateProductMutation();
 
   const [uplaodProductImage, { isLoading: loadingUpload }] =
-    useUplaodProductImageMutation();
+    useUploadProductImageMutation();
 
   useEffect(() => {
     if (product) {
