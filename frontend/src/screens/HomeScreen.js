@@ -3,6 +3,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Product from "../components/Product";
 import React from "react";
+import Paginate from "../components/Paginate";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -25,6 +26,8 @@ function HomeScreen() {
 
   const { data, isLoading, error } = useGetProductsQuery({ pageNumber });
 
+  console.log(data);
+
   return (
     <Container>
       {isLoading ? (
@@ -43,6 +46,7 @@ function HomeScreen() {
               </Col>
             ))}
           </Row>
+          <Paginate pages={data.pages} page={data.page} />
         </div>
       )}
     </Container>

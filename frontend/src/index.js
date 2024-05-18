@@ -136,6 +136,11 @@ const router = createBrowserRouter([
             element: <ProductListScreen />,
           },
           {
+            id: 72,
+            path: "/admin/productlist/:pageNumber",
+            element: <ProductListScreen />,
+          },
+          {
             id: 73,
             path: "/admin/product/:id/edit",
             element: <ProductEditScreen />,
