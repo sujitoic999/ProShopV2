@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import Product from "../components/Product";
 import React from "react";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
@@ -20,7 +21,9 @@ function HomeScreen() {
   //   fetchProducts();
   // }, []);
 
-  const { data: products, isLoading, error } = useGetProductsQuery();
+  const { pageNumber } = useParams();
+
+  const { data, isLoading, error } = useGetProductsQuery({ pageNumber });
 
   return (
     <Container>
@@ -34,7 +37,7 @@ function HomeScreen() {
         <div>
           <h1>Latest Products</h1>
           <Row>
-            {products.map((product) => (
+            {data.products.map((product) => (
               <Col sm={12} md={6} xl={3} key={product._id}>
                 <Product product={product} />
               </Col>
