@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       },
       {
         id: 1,
-        path: "/search/keyword/page/:pageNumber",
+        path: "/search/:keyword/page/:pageNumber",
         element: <HomeScreen />,
       },
       {
