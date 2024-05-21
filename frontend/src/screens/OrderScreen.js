@@ -1,13 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Button,
-  Card,
-} from "react-bootstrap";
+import { Row, Col, ListGroup, Image, Button, Card } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
@@ -106,21 +99,21 @@ const OrderScreen = () => {
   };
 
   const deliverOrderHandler = async () => {
-        try {
-          await deliverOrder(orderId);
-          refetch();
-          toast.success('Order delivered');
-        } catch (err) {
-          toast.error(err?.data?.message || err.message); 
-        }
-  }
+    try {
+      await deliverOrder(orderId);
+      refetch();
+      toast.success("Order delivered");
+    } catch (err) {
+      toast.error(err?.data?.message || err.message);
+    }
+  };
 
   return (
     <div className="container">
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger" />
+        <Message variant="danger">{error.data.message || error.error}</Message>
       ) : (
         <div>
           <h1>Order {order._id}</h1>
