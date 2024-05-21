@@ -7,7 +7,6 @@ import Paginate from "../components/Paginate";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Loader from "../components/Loader";
 import ProductCarousel from "../components/ProductCarousel";
-import Meta from "../components/Meta";
 import Message from "../components/Message";
 // import axios from "axios";
 
