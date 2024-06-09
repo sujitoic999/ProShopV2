@@ -19,3 +19,7 @@ export default PrivateRoute;
 // example after a form is submitted. If using replace: true,
 // the navigation will replace the current entry in the history
 // stack instead of adding a new one.
+
+// If you pass replace: true to navigate then the current entry in the history stack will be replaced with the new one.
+//  An example is when the user clicks a “purchase” button but needs to log in first, after they log in,
+//  you can replace the login screen with the checkout screen you wanted them to be at.
