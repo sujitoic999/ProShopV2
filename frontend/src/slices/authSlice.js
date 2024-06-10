@@ -24,3 +24,5 @@ const authSlice = createSlice({
 export const { setCredentials, logout } = authSlice.actions;
 
 export default authSlice.reducer;
+
+//this is reducer which will perform action dispatched by a component to a state of store.

@@ -102,7 +102,7 @@ const router = createBrowserRouter([
       {
         id: 6,
         path: "",
-        element: <PrivateRoute />,
+        element: <PrivateRoute />, //this functional component either returning outlet or navigating to login screen
         children: [
           {
             id: 61,

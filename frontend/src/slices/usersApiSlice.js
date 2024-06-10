@@ -25,6 +25,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         method: "POST",
       }),
     }),
+    
     profile: builder.mutation({
       query: (data) => ({
         url: `${USERS_URL}/profile`,
@@ -72,3 +73,6 @@ export const {
   useGetUserDetailsQuery,
   useUpdateUserMutation,
 } = usersApiSlice;
+
+
+//this is only slice for API calls like custom hooks
