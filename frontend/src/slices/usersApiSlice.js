@@ -73,3 +73,6 @@ export const {
   useGetUserDetailsQuery,
   useUpdateUserMutation,
 } = usersApiSlice;
+
+
+//this is only slice for API calls like custom hooks

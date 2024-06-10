@@ -53,3 +53,5 @@ export const {
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+//this is reducer which will perform action dispatched by a component to a state of store.
