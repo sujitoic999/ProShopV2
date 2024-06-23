@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
@@ -9,6 +9,7 @@ import CheckoutSteps from "../components/CheckoutSteps";
 
 const ShippingScreen = () => {
   const cart = useSelector((state) => state.cart);
+  // console.log("shipping address---------", cart);
   const { shippingAddress } = cart;
 
   const [address, setAddress] = useState(shippingAddress?.address || "");

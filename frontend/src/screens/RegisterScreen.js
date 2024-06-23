@@ -36,11 +36,11 @@ const RegisterScreen = () => {
     } else {
       try {
         const res = await register({ name, email, password }).unwrap();
-        console.log(res);
+        // console.log("registerregister-----", res);
         dispatch(setCredentials({ ...res }));
         navigate(redirect);
       } catch (err) {
-        console.log("register Screen Error", err);
+        // console.log("register Screen Error", err);
         toast.error(err?.data?.message || err.error);
       }
     }

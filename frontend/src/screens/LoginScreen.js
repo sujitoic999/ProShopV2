@@ -19,7 +19,7 @@ const LoginScreen = () => {
 
   const [login, { isLoading }] = useLoginMutation();
 
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth); //checking whether user is logged in or not
 
   const { search } = useLocation(); //search part beasically contains content of ? in current url
   //  like in http://localhost:3000/login?redirect=/shipping   "redirect=/shipping" part will be there.
@@ -30,12 +30,20 @@ const LoginScreen = () => {
   // then we'll be redirected to redirect screen after login screen
   console.log("new created redirect---", redirect);
 
+  //here useParams() can't do anything because useParams() works for route parameter
+
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
       const res = await login({ email, password }).unwrap();
-      // console.log(res);
+      console.log("login information.....", res);
+      // here what we're doing is first we're seding our data to backend to set current user as logged in
+      // now again receiving logged in user data from backend and setting the information to localStorage with help of set credentials method
       dispatch(setCredentials({ ...res }));
+      // why we've destructured res object?
+      // Consistency: Ensures that all properties from the API response are included in the Redux state.
+      // Future-proofing: If the res object changes (e.g., additional fields are added by the API), the destructuring approach will automatically handle these without requiring code changes.
+      // Simplicity: It reduces the need for repetitive code, making it easier to read and maintain.
       navigate(redirect);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
