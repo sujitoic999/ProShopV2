@@ -21,9 +21,9 @@ function Header() {
 
   const logoutHandler = async () => {
     try {
-      await logoutApiCall().unwrap();
-      dispatch(logout());
-      dispatch(resetCart());
+      await logoutApiCall().unwrap(); //this is logging out user who is logged in from backend
+      dispatch(logout()); //this is handling things inside local storage, and remember this is a reducer function
+      dispatch(resetCart()); //this is resetting cart after user is logging out, and remember this is a reducer function
       navigate("/login");
     } catch (err) {
       console.log(err);

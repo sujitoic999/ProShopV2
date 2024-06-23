@@ -58,7 +58,8 @@ function ProductScreen() {
   //   fetchProducts();
   // }, [productId]);
   const addToCartHandler = () => {
-    // here we are sending qty to cartSlice by destructing the products now qty is another property of product.
+    // here we are sending qty to cartSlice by destructing the products now qty is another property of
+    // product but the original product object didn't changed.
     dispatch(addToCart({ ...product, qty }));
     navigate("/cart");
   };
@@ -71,7 +72,7 @@ function ProductScreen() {
         rating,
         comment,
       }).unwrap();
-      refetch();
+      refetch(); //here we're again getting product details
       toast.success("Review Submitted");
       setRating(0);
       setComment("");
@@ -88,9 +89,7 @@ function ProductScreen() {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">
-          {error.data.message || error.error}
-        </Message>
+        <Message variant="danger">{error.data.message || error.error}</Message>
       ) : (
         <div>
           <Meta title={product.name} />

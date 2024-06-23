@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Product from "../components/Product";
 import React from "react";
 import Paginate from "../components/Paginate";
-import { useGetProductsQuery } from "../slices/productsApiSlice";
+import { useGetProductsQuery } from "../slices/productsApiSlice"; //this is custom hook for API Call
 import Loader from "../components/Loader";
 import ProductCarousel from "../components/ProductCarousel";
 import Message from "../components/Message";
@@ -25,12 +25,15 @@ function HomeScreen() {
 
   const { pageNumber, keyword } = useParams();
 
+  console.log("pageNumberpageNumber", pageNumber);
+  console.log("keywordkeyword", keyword);
+
   const { data, isLoading, error } = useGetProductsQuery({
     keyword,
     pageNumber,
   });
 
-  console.log(data);
+  console.log("pagination data", data);
 
   return (
     <Container>
