@@ -1,0 +1,23 @@
+this is how aliasing works inside an object:
+
+supppose this is an object
+
+const user = {
+  id: 1,
+  name: 'Alice',
+  age: 30
+};
+
+now we're destructering it and aliasing like below:
+
+const { name: userName, age: userAge } = user;
+
+console.log(userName); // Output: Alice
+console.log(userAge); // Output: 30
+
+In this example:
+
+name is aliased to userName.
+age is aliased to userAge.
+
+//this is how aliasing works inside an object.
